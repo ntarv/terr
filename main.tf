@@ -57,7 +57,7 @@ resource "aws_security_group" "Jenkins2" {
 
 resource "aws_key_pair" "jenkins2_key" {
       key_name   = "for_ansib_jenx"
-      public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDAQgAvuo2gbDtFSiKxovB7xLmonHEZjvLMkbBoIq6ONjJXD4w1THPgcsvPqvnHkSEfD6VbyHhT2qx2jslZPzWDwQ+Tdq1avMvoB4Ddeilfdgz59wZzx7PXKQ2divrTCOxUCKR/xYSsthd60Y6YuLcRs+8oKevANrI9jRz0FvilBjt2+Nf9MfSm+l6OkFF8eHhhyq+W7r6MPGqa82EUOGl6fjxoo5rMkKjSldADqhFZKwp52EXVcS2jok+gJOIM0ub8+M+V8LwNtAZg9GQC6fClARNdWUdR9pnr+1Ud1gSROlhes8EwIy+pER7xreNxlcu0F0Qp5DT62SBu93XDBoXTIuq7SkXm2IB7lmEQ/6w1LfxLYeu343lIQk7LMHe12UWPj8YbMVnIVo7GxGyTzSe+goDdQw9YrHhB+0C2iHgcPOqAYVbMq59PLYd0gDUz2e8iLShV9IqgDdL0Pn9uqpasU1hLWdbSh4bVrmEtYJuvFsx2r4BvQl8OWMYpdlY7hY8= emea\\ilteltano@ILTELPC228"
+      public_key = ""
 
     }
 
