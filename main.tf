@@ -3,25 +3,25 @@ provider "aws" {
   secret_key = ""
   region     = "eu-central-1"
 }
-resource "aws_instance" "Jenkins-2" {
+resource "aws_instance" "Jenkins" {
   instance_type               = "t2.micro"
-  vpc_security_group_ids      = [aws_security_group.Jenkins2.id]
+  vpc_security_group_ids      = [aws_security_group.Jenkins.id]
   user_data                   = file("install_jenkins.sh")
   user_data_replace_on_change = true
-  key_name                    = "for_ansib_jenx"
+  key_name                    = "my_own"
   ami = "ami-0d1ddd83282187d18"
   tags = {
-    Name = "Jenkins-2"
+    Name = "Jenkins"
     "ENV"    = "production"
 
   }
 }
 resource "aws_instance" "Ansible" {
   instance_type               = "t2.micro"
-  vpc_security_group_ids      = [aws_security_group.Jenkins2.id]
+  vpc_security_group_ids      = [aws_security_group.Jenkins.id]
   user_data                   = file("install_ansible.sh")
   user_data_replace_on_change = true
-  key_name                    = "for_ansib_jenx"
+  key_name                    = "my_own"
   ami                         = "ami-0d1ddd83282187d18"
   tags                        = {
     Name  = "Ansible"
@@ -30,7 +30,7 @@ resource "aws_instance" "Ansible" {
   }
 }
 
-resource "aws_security_group" "Jenkins2" {
+resource "aws_security_group" "Jenkins" {
   name        = "allow_all"
   description = "Allow all inbound traffic"
 
@@ -44,7 +44,6 @@ resource "aws_security_group" "Jenkins2" {
     }
   }
 
-
   egress {
     from_port        = 0
     to_port          = 0
@@ -55,11 +54,7 @@ resource "aws_security_group" "Jenkins2" {
 
 }
 
-resource "aws_key_pair" "jenkins2_key" {
-      key_name   = "for_ansib_jenx"
-      public_key = ""
 
-    }
 
 
 
